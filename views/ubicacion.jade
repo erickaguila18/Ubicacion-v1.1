@@ -1,0 +1,55 @@
+doctype
+html(lang='es')
+	head
+		title='Ubicaciones'
+		script(src="../js/jquery-1.11.2.min.js")
+		script(src="../js/bootstrap.min.js")
+		script(src="../js/leaflet.js")
+		script(src="../js/mapa.js")
+		link(href="../css/bootstrap.min.css" rel="stylesheet")
+		link(href="../css/estilo.css" rel="stylesheet")
+		link(href="../css/leaflet.css" rel="stylesheet")
+		script(src='https://api.tiles.mapbox.com/mapbox.js/v2.1.6/mapbox.js')
+		link(href='https://api.tiles.mapbox.com/mapbox.js/v2.1.6/mapbox.css' rel='stylesheet')
+		meta(name='viewport' content='width=device-width, initial-scale=1.0')
+		meta(charset='utf-8')
+	body( onload="cargar();")
+		nav(class="navbar navbar-default" id="blur")
+				div(class="container-fluid")
+					div(class="navbar-header")
+						button(type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#hid")
+							span(class="icon-bar")
+							span(class="icon-bar")
+							span(class="icon-bar")
+						img(class="img-responsive"  href="#" src="../img/logotipo.png")
+					div(class="collapse navbar-collapse " id="hid")
+						ul(class="nav navbar-nav")
+							li: a(href="/home") Chat 
+							li: a(href="/signout") Salir 
+						
+
+		div(class="container")
+			h2(id="blanco") Ubicación
+			br
+			div(class="container")
+			br
+			div(class="table-responsive")
+				table(class="table table-striped table-hover")
+					tr
+						th No.
+						th Usuario
+						th Latitude
+						th Longitude
+						th Localizar
+						- if (usuarios)
+							- var count=0;
+							- each usuario in usuarios
+								- count=count+1;
+								tr
+									td #{count}
+									td #{usuario.username}
+									td #{usuario.latitude}
+									td #{usuario.longitude}
+									td: a(href="/map/#{usuario._id}"): img(src="../img/ub.png" title="Ubicar Persona")
+			br
+	

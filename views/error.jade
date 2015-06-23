@@ -1,0 +1,32 @@
+doctype
+html(lang='es')
+	head
+		title='Error'
+		link(href="../css/bootstrap.min.css" rel="stylesheet")
+		link(href="../css/estilo.css" rel="stylesheet")
+		script(src="../js/jquery-1.11.2.min.js")
+		script(src="../js/bootstrap.min.js")
+		meta(name='viewport' content='width=device-width, initial-scale=1.0')
+		meta(charset='utf-8')
+	body
+		nav(class="navbar navbar-default" id="blur")
+				div(class="container-fluid")
+					div(class="navbar-header")
+						button(type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#hid")
+							span(class="icon-bar")
+							span(class="icon-bar")
+							span(class="icon-bar")
+						img(class="img-responsive"  href="#" src="../img/logotipo.png")
+					div(class="collapse navbar-collapse" id="hid")
+						ul(class="nav navbar-nav")
+							li: a(href="/") Login 
+
+		div(class="container")
+			br
+			br
+			img(src="../img/error.png" class="pull-right")
+			block content
+				h1(id="blanco")= message
+				h2(id="blanco")= error.status
+				pre #{error.stack}
+			br

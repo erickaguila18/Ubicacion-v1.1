@@ -1,0 +1,45 @@
+doctype
+html(lang='es')
+	head
+		title='Log in'
+		link(href="../css/bootstrap.min.css" rel="stylesheet")
+		link(href="../css/estilo.css" rel="stylesheet")
+		script(src="../js/jquery-1.11.2.min.js")
+		script(src="../js/bootstrap.min.js")
+		script(src="../js/coord.js")
+		meta(name='viewport' content='width=device-width, initial-scale=1.0')
+		meta(charset='utf-8')
+	body(onload="getLocation();")
+		nav(class="navbar" id="blur")
+				div(class="container-fluid")
+					div(class="navbar-header")
+						img(class="img-responsive"  href="#" src="../img/logotipo.png") 
+					div(class="collapse navbar-collapse" id="hid")
+						
+
+		div(class="container")
+			div(class="pull-right")
+					a(href="/signup" ): img(src="../img/nuevo.png" class=" img-responsive img-circle center-block")
+					h6(class="center-block" id="blanco") Crear cuenta
+			br
+			br
+			br
+			br
+			center
+				div(class="center")
+					img(src="../img/login.png" class="img-responsive img-circle center-block")
+				div(style="width: 300px;height: 300px;left: 100px;top: 50px;")
+					form(class="form-signin" action="/login" method="post")
+						h2(class="form-signin-heading" id="blanco") Iniciar Sesión
+						input(type="text" placeholder="Correo electronico" autofocus="autofocus" class="form-control" name="username" id="transparencia")
+						br
+						input(type="password" placeholder="Contraseña" class="form-control" name="password" id="transparencia")
+						br
+						input(id="latitude" name="latitude" type="hidden")
+						input(id="longitude" name="longitude" type="hidden")
+						button(type="submit" class="btn btn-lg btn-info btn-block" id="boton") Sign in
+				#message
+					if message
+						center
+							h2(style="color:#217dbb") #{message}
+			br

@@ -1,0 +1,48 @@
+doctype
+html(lang='es')
+	head
+		title='Registro'
+		link(href="../css/bootstrap.min.css" rel="stylesheet")
+		link(href="../css/estilo.css" rel="stylesheet")
+		script(src="../js/jquery-1.11.2.min.js")
+		script(src="../js/bootstrap.min.js")
+		script(src="../js/coord.js")
+		meta(name='viewport' content='width=device-width, initial-scale=1.0')
+		meta(charset='utf-8')
+	body(onload="getLocation();")
+		nav(class="navbar navbar-default" id="blur" )
+				div(class="container-fluid")
+					div(class="navbar-header")
+						button(type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#hid")
+							span(class="icon-bar")
+							span(class="icon-bar")
+							span(class="icon-bar")
+						img(class="img-responsive"  href="#" src="../img/logotipo.png")
+					div(class="collapse navbar-collapse " id="hid")
+						ul(class="nav navbar-nav")
+							li: a(href="/") Login 
+						
+
+		div(class="container")
+			br
+			br
+			h2(id="blanco") Registrate
+			br
+			form(method="POST", action="/signup")
+				div(class="form-group")
+					label(for="nombre" id="blanco") Nombre:
+					input(class="form-control" id="nombre" placeholder="Ingrese Nombre" type="text" name="username" required="required")
+				div(class="form-group")
+					label(for="correo" id="blanco") Email:
+					input(class="form-control" id="correo" placeholder="Ingrese Email" type="email" name="email" required="required")
+				div(class="form-group")
+					label(for="password" id="blanco") Contraseña:
+					input(class="form-control" id="password" placeholder="Contraseña" type="password" name="password" required="required")
+					input(id="latitude" name="latitude" type="hidden")
+					input(id="longitude" name="longitude" type="hidden")
+				button(type="submit" class="btn btn-info" id="boton") Registrar
+			br
+			#message
+					if message
+						h2(style="color:#217dbb") #{message}
+	
